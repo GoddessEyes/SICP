@@ -1,18 +1,18 @@
+
 ; 1.1.2
 (def pi 3.14159)
 (def radius 10)
 (* pi (* radius radius))
 
-(def circumference (* 2 pi radius ))
+(def circumference (* 2 pi radius))
 circumference
 
 ; 1.1.4
 (defn square [x] (* x x))
 (square (square 3))
 
-(defn sum-of-square [x y] 
-    ( + (square x) (square y))
-    )
+(defn sum-of-square [x y]
+  (+ (square x) (square y)))
 (sum-of-square 3 4)
 
 ; 1.1.5
@@ -26,26 +26,23 @@ circumference
 
 ; 1.1.6 cond:
 (defn abs [x]
-    (cond 
-        (> x 0) (x)
-        (= x 0) (0)
-        (< x 0) (- x)
-        ))
+  (cond
+    (> x 0) x
+    (= x 0) 0
+    (< x 0) (- x)))
 (abs -1)
 
 ; Else cond:
-(defn absElse [x] 
-    (cond 
-        (> x 0) x
-        :else (- x)
-        ))
+(defn absElse [x]
+  (cond
+    (> x 0) x
+    :else (- x)))
 (absElse -2)
 
 ; If condition:
 (defn absIf [x]
-    (if
-        (> x 0) x (- x)
-        ))
+  (if
+   (> x 0) x (- x)))
 
 (absIf -2)
 

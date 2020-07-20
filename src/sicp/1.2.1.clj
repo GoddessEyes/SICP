@@ -7,7 +7,7 @@
 (factorial 4)
 
 ; Iterative:
-(defn factorial2 [val] 
+(defn factorial2 [val]
   (defn iter [product counter]
     (if (> counter val)
       product

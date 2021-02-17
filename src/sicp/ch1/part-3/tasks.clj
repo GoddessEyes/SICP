@@ -69,3 +69,21 @@
 (defn sin [x] (Math/sin x))
 
 (fixed-point sin 1)
+
+
+; deriv:
+
+(def dx 0.00001)
+(defn deriv [g]
+  (fn [x]
+    (/ (- (g (+ x dx)) (g x)) dx)))
+
+(defn newton-transform [g]
+  (fn [x]
+    (- x (/ (g x) ((deriv g) x)))))
+
+(defn newtons-method [g guess]
+  (fixed-point (newton-transform g) guess))
+
+
+

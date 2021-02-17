@@ -86,4 +86,34 @@
   (fixed-point (newton-transform g) guess))
 
 
+(defn cubic [a b c]
+  (fn [x]
+    (+
+     (* x x x)
+     (* a x x)
+     (* b x)
+     c)))
+
+(< ((cubic 1 2 3) (newtons-method (cubic 1 2 3) 1.0)) dx)
+
+
+(defn double [f]
+  (fn [x]
+    (f (f x))))
+
+;; 21:
+;; (((double (double double)) inc) 5)
+
+;; 3:
+;; ((double inc) 1)
+
+
+(defn compose [f g]
+  (fn [x] (f (g x))))
+
+
+
+((compose (fn [x] (* x x)) inc) 6)
+
+
 

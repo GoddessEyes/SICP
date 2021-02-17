@@ -1,3 +1,6 @@
+
+; Tasks 1.3.2:
+
 (defn sum [term a next b]
   (cond (> a b) 0
         :else (+ (term a)
@@ -40,4 +43,29 @@
     (if (> a b) acc
         (recur (next a) (+ acc (term a))))))
 
+; Tasks 1.3.2:
 
+(defn intergral [f a b dx]
+  (* (sum f
+          (+ a (/ dx 2.0))
+          b)
+     dx))
+
+; (2 2) call
+(defn test-fun [func] ((func 2)))
+
+(def tolerance 0.000001)
+
+(defn fixed-point [f first-guess]
+  (letfn [(close-enough? [v1 v2]
+            (< (Math/abs (- v1 v2)) tolerance))
+          (try-it [guess]
+            (let [next (f guess)]
+              (if (close-enough? guess next)
+                next
+                (try-it next))))]
+    (try-it first-guess)))
+
+(defn sin [x] (Math/sin x))
+
+(fixed-point sin 1)

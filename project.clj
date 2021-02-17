@@ -5,4 +5,5 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]]
   :repl-options {:init-ns src.start}
-  :plugins [[lein-cljfmt "0.6.8"]])
+  :plugins [[lein-cljfmt "0.6.8"]]
+  :main ^:skip-aot src.sicp)
